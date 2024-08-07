@@ -18,15 +18,15 @@ const DashboardPage = async () => {
     .select()
     .from(projects)
     .where(eq(projects.userId, userId));
-
+  console.log("userId", userId);
   const subscribed = await getSubscription({ userId });
+  console.log("subscribed", subscribed);
 
   return (
     <div>
       <div className="flex items-center justify-center gap-3">
         <h1 className="my-4 text-center text-3xl font-bold">Your Projects</h1>
-        {subscribed !== true &&
-        userProjects.length >= maxFreeProjects ? null : (
+        {!subscribed && userProjects.length >= maxFreeProjects ? null : (
           <AddProjectButton />
         )}
       </div>

@@ -20,8 +20,6 @@ const ManageSubscription = () => {
         },
       }).then((res) => res.json());
 
-      console.log("url", url);
-
       router.push(url.url);
     } catch (error) {
       console.error(error);
