@@ -32,6 +32,6 @@ export async function getSubscription({ userId }: { userId: string }) {
   const userSubscription = await db.query.subscriptions.findFirst({
     where: eq(subscriptions.userId, userId),
   });
-  console.log("userSubscription", userSubscription);
+
   return userSubscription?.subscribed;
 }
